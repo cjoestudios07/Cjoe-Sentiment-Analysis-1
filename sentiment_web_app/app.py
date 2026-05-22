@@ -5,7 +5,7 @@ from sklearn.naive_bayes import MultinomialNB
 
 app = Flask(__name__)
 
-# Dataset
+# Datasetweb: gunicorn app:app
 data = {
     'text': [
         'I love this product',
