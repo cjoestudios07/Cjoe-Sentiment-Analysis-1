@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cjoe's Sentiment Analyzer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(#f5f7f7, #cfd8d8, #50aaaa);
+            color: #0d1b1b;
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            width: 500px;
+            margin: auto;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px #0000004d;
+        }
+
+        input {
+            width: 85%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 15px;
+            background: #2f4f4f;
+            color: #f5f7f7;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #50aaaa;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Sentiment Analyzer</h2>
+
+    <form action="/predict" method="post">
+        <input type="text" name="text" placeholder="Type your sentence..." required>
+        <br>
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result">
+            <p><strong>Sentiment:</strong> {{ prediction }}</p>
+            <p><strong>Emotion:</strong> {{ emotion }}</p>
+        </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
